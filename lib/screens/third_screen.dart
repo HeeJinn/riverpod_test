@@ -10,24 +10,72 @@ class ThirdScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final apiProducts = ref.watch(apiProductsProvider);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Third Screen')),
+      // 1. Use a clear, large Title for mobile readability
+      appBar: AppBar(
+        title: const Text('Store Inventory'),
+        centerTitle: true, // Standard for iOS look
+      ),
       body: apiProducts.when(
         data: (data) {
           return ListView.builder(
+            // 2. Add some breathing room around the list
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             itemCount: data.length,
             itemBuilder: (BuildContext context, int index) {
               final product = data[index];
+              
               return Card(
-                child: Container(
-                  padding: const EdgeInsets.all(16),
+                elevation: 1,
+                margin: const EdgeInsets.only(bottom: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  // 3. Swap 'Row' for 'Column' + 'Expanded' to prevent horizontal overflow
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('ID: ${product.id}'),
-                      Text('Title: ${product.title}'),
-                      Text('Price: £${product.price}'),
-                      Text('Category: ${product.category}'),
+                      // Circular Badge for ID (Android/iOS common style)
+                      CircleAvatar(
+                        backgroundColor: Colors.deepPurple.shade100,
+                        child: Text('${product.id}', style: const TextStyle(fontSize: 12)),
+                      ),
+                      const SizedBox(width: 16),
+                      
+                      // Use Expanded to let the text wrap instead of breaking the screen
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              product.title,
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis, // Adds "..." if too long
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              product.category.toUpperCase(),
+                              style: TextStyle(color: Colors.grey.shade600, fontSize: 12, letterSpacing: 1),
+                            ),
+                          ],
+                        ),
+                      ),
+                      
+                      // Price on the right side
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            '£${product.price}',
+                            style: const TextStyle(
+                              color: Colors.green, 
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -35,12 +83,8 @@ class ThirdScreen extends ConsumerWidget {
             },
           );
         },
-        error: (error, stackTrace) {
-          return Center(child: Text('Error loading products: $error'));
-        },
-        loading: () {
-          return Center(child: LoadingIndicatorM3E());
-        },
+        error: (error, stackTrace) => Center(child: Text('Error: $error')),
+        loading: () => const Center(child: LoadingIndicatorM3E()),
       ),
     );
   }
