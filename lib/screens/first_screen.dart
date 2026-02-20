@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_test/providers/carts_provider.dart';
 import 'package:riverpod_test/providers/product_provider.dart';
 import 'package:riverpod_test/screens/second_screen.dart';
+import 'package:riverpod_test/screens/third_screen.dart';
 
 class FirstScreen extends ConsumerWidget {
   static const routeName = '/first';
@@ -22,6 +23,12 @@ class FirstScreen extends ConsumerWidget {
               context.push(SecondScreen.routeName);
             },
             icon: const Icon(Icons.shopping_cart, color: Colors.white),
+          ),
+          IconButton(
+            onPressed: () {
+              context.push(ThirdScreen.routeName);
+            },
+            icon: const Icon(Icons.api_outlined, color: Colors.white),
           ),
         ],
         backgroundColor: Colors.deepPurple,

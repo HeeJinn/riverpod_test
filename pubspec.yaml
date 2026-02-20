@@ -38,6 +38,8 @@ dependencies:
   flutter_riverpod: ^3.2.1
   riverpod: ^3.2.1
   riverpod_annotation: ^4.0.2
+  http: ^1.6.0
+  loading_indicator_m3e: ^0.1.1
 
 dev_dependencies:
   flutter_test:
