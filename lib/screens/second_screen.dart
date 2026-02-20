@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_test/providers/carts_provider.dart';
 import 'package:riverpod_test/providers/product_provider.dart';
 
 class SecondScreen extends ConsumerStatefulWidget {
@@ -15,7 +16,7 @@ class _SecondScreenState extends ConsumerState<SecondScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final cartProducts = ref.watch(reducedProductsProvider);
+    final cartProducts = ref.watch(cartProvider).toList();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Cart'),
@@ -48,6 +49,10 @@ class _SecondScreenState extends ConsumerState<SecondScreen> {
             );
           },
         ),
+      ),
+      floatingActionButton: TextButton(
+        onPressed: () {},
+        child: Text('Total: £${ref.watch(cartTotalProvider)}'),
       ),
     );
   }

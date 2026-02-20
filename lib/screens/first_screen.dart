@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverpod_test/providers/carts_provider.dart';
 import 'package:riverpod_test/providers/product_provider.dart';
 import 'package:riverpod_test/screens/second_screen.dart';
 
@@ -11,6 +12,7 @@ class FirstScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final allProducts = ref.watch(productsProvider);
+    final cartsProducts = ref.watch(cartProvider).toList();
     return Scaffold(
       appBar: AppBar(
         title: const Text('RiverPod', style: TextStyle(color: Colors.white)),
@@ -47,6 +49,30 @@ class FirstScreen extends ConsumerWidget {
                     ),
                     Text(allProducts[index].title),
                     Text('£${allProducts[index].price}'),
+                    if (cartsProducts.contains(allProducts[index]))
+                      TextButton(
+                        onPressed: () {
+                          ref
+                              .read(cartProvider.notifier)
+                              .removeProduct(allProducts[index]);
+                        },
+                        child: const Text(
+                          'Remove',
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    if (!cartsProducts.contains(allProducts[index]))
+                      TextButton(
+                        onPressed: () {
+                          ref
+                              .read(cartProvider.notifier)
+                              .addProduct(allProducts[index]);
+                        },
+                        child: const Text(
+                          'Add to Cart',
+                          style: TextStyle(color: Colors.green),
+                        ),
+                      ),
                   ],
                 ),
               ),
