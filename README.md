@@ -21,6 +21,7 @@ This repository focuses on building scalable, maintainable, and testable code th
 ## 🛠️ Roadmap
 
 - [x] Fetching API & JSON Parsing
+- [x] GoRouter for complex navigation
 - [x] Optimized Multi-platform UI
 - [x] Riverpod State Management
 - [x] Shared Preferences Integration
