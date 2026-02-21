@@ -24,5 +24,5 @@ This repository focuses on building scalable, maintainable, and testable code th
 - [x] Optimized Multi-platform UI
 - [x] Riverpod State Management
 - [x] Shared Preferences Integration
-- [x] Local Database (sqflite)
+- [ ] **Local Database** *(sqflite)*
 - [ ] **Firebase Integration** *(Coming Soon)*
