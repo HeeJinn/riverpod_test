@@ -40,6 +40,7 @@ dependencies:
   riverpod_annotation: ^4.0.2
   http: ^1.6.0
   loading_indicator_m3e: ^0.1.1
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +60,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  # The following line ensures that the Material Icons font is
+  # The following lined ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true

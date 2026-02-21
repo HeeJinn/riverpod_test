@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_test/screens/first_screen.dart';
+import 'package:riverpod_test/screens/fourt_screen.dart';
 import 'package:riverpod_test/screens/second_screen.dart';
 import 'package:riverpod_test/screens/third_screen.dart';
 
@@ -17,6 +18,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: ThirdScreen.routeName,
       builder: (context, state) => const ThirdScreen(),
-    )
+    ),
+    GoRoute(
+      path: FourtScreen.routeName,
+      builder: (context, state) => const FourtScreen(),
+    ),
   ],
 );
