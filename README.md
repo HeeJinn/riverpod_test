@@ -1,16 +1,29 @@
-# riverpod_test
+# 🚀 Real World Implementation Blueprint
 
-A new Flutter project.
+> A practical blueprint bridging the gap between simple "dummy" examples and production-ready applications.
 
-## Getting Started
+This repository focuses on building scalable, maintainable, and testable code through a clean separation of concerns.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Key Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* **Advanced State Management:** Powered by **Riverpod** for reactive and type-safe state handling.
+* **MVVM Architecture:** Cleanly decoupling the UI from business logic for enhanced testability and maintenance.
+* **Optimized UI:** Adaptive, responsive layouts tailored for all platforms (iOS, Android, Web, and Desktop).
+* **Data Fetching:** Robust API integration handling asynchronous data streams gracefully.
+* **Local Persistence:** A hybrid storage approach utilizing:
+    * **sqflite:** For structured local relational databases.
+    * **Shared Preferences:** For lightweight key-value pair storage.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Roadmap
+
+- [x] Fetching API & JSON Parsing
+- [x] GoRouter for complex navigation
+- [x] Optimized Multi-platform UI
+- [x] Riverpod State Management
+- [x] Shared Preferences Integration
+- [ ] **Local Database** *(sqflite)*
+- [ ] **Firebase Integration** *(Coming Soon)*
