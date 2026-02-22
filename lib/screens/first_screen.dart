@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_test/providers/carts_provider.dart';
 import 'package:riverpod_test/providers/product_provider.dart';
+import 'package:riverpod_test/screens/fifth_screen.dart';
 import 'package:riverpod_test/screens/fourt_screen.dart';
 import 'package:riverpod_test/screens/second_screen.dart';
 import 'package:riverpod_test/screens/third_screen.dart';
@@ -41,6 +42,12 @@ class FirstScreen extends ConsumerWidget {
               context.push(FourtScreen.routeName);
             },
             icon: const Icon(Icons.share_outlined, color: Colors.white),
+          ),
+          IconButton(
+            onPressed: () {
+              context.push(FifthScreen.routeName);
+            },
+            icon: Icon(Icons.note_add_rounded, color: Colors.white),
           ),
         ],
         backgroundColor: isIOS ? CupertinoColors.systemBlue : Colors.deepPurple,

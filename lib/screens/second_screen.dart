@@ -51,7 +51,10 @@ class _SecondScreenState extends ConsumerState<SecondScreen> {
       ),
       floatingActionButton: TextButton(
         onPressed: () {},
-        child: Text('Total: £${ref.watch(cartTotalProvider)}'),
+        child: Text(
+          'Total: £${ref.watch(cartTotalProvider)}',
+          style: const TextStyle(fontSize: 25),
+        ),
       ),
     );
   }
